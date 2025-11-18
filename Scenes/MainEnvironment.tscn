@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://h8d1aseqp8nd"]
+[gd_scene load_steps=12 format=3 uid="uid://h8d1aseqp8nd"]
 
 [ext_resource type="Script" uid="uid://cfnus31ip8d3h" path="res://Scenes/Player.gd" id="1_6c0ob"]
+[ext_resource type="PackedScene" uid="uid://batmwurvpsv4i" path="res://Scenes/wall.tscn" id="2_kcaew"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wcmyl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -73,3 +74,6 @@ mesh = SubResource("CylinderMesh_qnkal")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00285602, 0.0141599)
 shape = SubResource("CylinderShape3D_kcaew")
+
+[node name="Wall" parent="." instance=ExtResource("2_kcaew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.181146, -0.19411409, -10.383872)
