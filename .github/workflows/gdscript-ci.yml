@@ -16,7 +16,7 @@ jobs:
 
       - name: Install gdscript-formatter
         run: |
-          curl -L -o gdscript-format https://github.com/Scony/godot-gdscript-formatter/releases/latest/download/gdscript-format-linux
+          curl -L -o gdscript-format https://github.com/Scony/godot-gdscript-formatter/releases/latest/download/gdscript-format-linux-x86_64
           chmod +x gdscript-format
           sudo mv gdscript-format /usr/local/bin/
 
