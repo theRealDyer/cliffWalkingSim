@@ -1,0 +1,25 @@
+name: GDScript CI
+
+on:
+  pull_request:
+    branches: [ main, dev ]
+  push:
+    branches: [ main, dev ]
+
+jobs:
+  gdscript:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install gdscript-formatter
+        run: |
+          curl -L -o gdscript-format.zip https://github.com/GDQuest/GDScript-formatter/releases/download/0.18.2/gdscript-formatter-0.18.2-linux-x86_64.zip
+          unzip gdscript-format.zip
+          sudo mv gdscript-formatter-0.18.2-linux-x86_64 /usr/local/bin/gdscript-format
+          chmod +x /usr/local/bin/gdscript-format
+
+      - name: Lint only
+        run: gdscript-format lint Scripts/*.gd
