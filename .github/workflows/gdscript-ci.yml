@@ -1,0 +1,24 @@
+name: GDScript CI
+
+on:
+  pull_request:
+    branches: [ main, dev ]
+  push:
+    branches: [ main, dev ]
+
+jobs:
+  gdscript:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install gdscript-formatter
+        run: |
+          curl -L -o gdscript-format https://github.com/Scony/godot-gdscript-formatter/releases/latest/download/gdscript-format-linux
+          chmod +x gdscript-format
+          sudo mv gdscript-format /usr/local/bin/
+
+      - name: Lint only
+        run: gdscript-format lint .
