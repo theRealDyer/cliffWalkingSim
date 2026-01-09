@@ -16,9 +16,11 @@ jobs:
 
       - name: Install gdscript-formatter
         run: |
-          curl -L -o gdscript-format https://github.com/Scony/godot-gdscript-formatter/releases/latest/download/gdscript-format-linux-x86_64
+          curl -L -o gdscript-format.zip https://github.com/GDQuest/GDScript-formatter/releases/download/0.18.2/gdscript-formatter-0.18.2-linux-x86_64.zip
+          unzip gdscript-format.zip
           chmod +x gdscript-format
           sudo mv gdscript-format /usr/local/bin/
+          which gdscript-format
 
       - name: Lint only
         run: gdscript-format lint .
