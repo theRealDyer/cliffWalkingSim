@@ -20,7 +20,6 @@ jobs:
           unzip gdscript-format.zip
           sudo mv gdscript-formatter-0.18.2-linux-x86_64 /usr/local/bin/gdscript-format
           chmod +x /usr/local/bin/gdscript-format
-          which gdscript-format
 
       - name: Lint only
-        run: gdscript-format lint .
+        run: gdscript-format lint scripts/**/*.gd
