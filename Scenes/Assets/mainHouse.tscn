@@ -1,3 +1,106 @@
-[gd_scene format=3 uid="uid://batmwurvpsv4i"]
+[gd_scene load_steps=6 format=3 uid="uid://batmwurvpsv4i"]
 
-[node name="Main" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://b8iyudf3it007" path="res://Scenes/Assets/WallSegment.tscn" id="1_6cl7c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6cl7c"]
+resource_local_to_scene = true
+size = Vector3(2, 2.3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mtgqp"]
+resource_local_to_scene = true
+size = Vector3(2, 2.3, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mtgqp"]
+resource_local_to_scene = true
+size = Vector3(2, 2.3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5pyak"]
+resource_local_to_scene = true
+size = Vector3(2, 2.3, 0.2)
+
+[node name="MainHouse" type="Node3D"]
+
+[node name="Anchors" type="Node3D" parent="."]
+
+[node name="FrontDoorAnchor" type="Marker3D" parent="Anchors"]
+
+[node name="Exterior" type="Node3D" parent="."]
+
+[node name="Interior" type="Node3D" parent="."]
+
+[node name="Room1" type="Node3D" parent="Interior"]
+
+[node name="WallSegment" parent="Interior/Room1" instance=ExtResource("1_6cl7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66731834, 0, -2.5224028)
+length = 2.0
+height = 2.3
+thickness = 0.2
+
+[node name="MeshInstance3D" parent="Interior/Room1/WallSegment" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
+mesh = SubResource("BoxMesh_6cl7c")
+
+[node name="Body" parent="Interior/Room1/WallSegment" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
+
+[node name="CollisionShape3D" parent="Interior/Room1/WallSegment/Body" index="0"]
+shape = SubResource("BoxShape3D_mtgqp")
+
+[node name="WallSegment2" parent="Interior/Room1" instance=ExtResource("1_6cl7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7377949, 0, 1.9812634)
+length = 2.0
+height = 2.3
+thickness = 0.2
+
+[node name="MeshInstance3D" parent="Interior/Room1/WallSegment2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
+mesh = SubResource("BoxMesh_mtgqp")
+
+[node name="Body" parent="Interior/Room1/WallSegment2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
+
+[node name="CollisionShape3D" parent="Interior/Room1/WallSegment2/Body" index="0"]
+shape = SubResource("BoxShape3D_5pyak")
+
+[node name="WallSegment3" parent="Interior/Room1" instance=ExtResource("1_6cl7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35408, 0, 0.022347212)
+length = 2.0
+height = 2.3
+thickness = 0.2
+
+[node name="MeshInstance3D" parent="Interior/Room1/WallSegment3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
+mesh = SubResource("BoxMesh_mtgqp")
+skeleton = NodePath("../../WallSegment2")
+
+[node name="Body" parent="Interior/Room1/WallSegment3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
+
+[node name="CollisionShape3D" parent="Interior/Room1/WallSegment3/Body" index="0"]
+shape = SubResource("BoxShape3D_5pyak")
+
+[node name="WallSegment4" parent="Interior/Room1" instance=ExtResource("1_6cl7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3580484, -2.3841858e-07, -0.49975657)
+length = 2.0
+height = 2.3
+thickness = 0.2
+
+[node name="MeshInstance3D" parent="Interior/Room1/WallSegment4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
+mesh = SubResource("BoxMesh_mtgqp")
+skeleton = NodePath("../../WallSegment2")
+
+[node name="Body" parent="Interior/Room1/WallSegment4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
+
+[node name="CollisionShape3D" parent="Interior/Room1/WallSegment4/Body" index="0"]
+shape = SubResource("BoxShape3D_5pyak")
+
+[node name="Room2" type="Node3D" parent="Interior"]
+
+[node name="Room3" type="Node3D" parent="Interior"]
+
+[editable path="Interior/Room1/WallSegment"]
+[editable path="Interior/Room1/WallSegment2"]
+[editable path="Interior/Room1/WallSegment3"]
+[editable path="Interior/Room1/WallSegment4"]
