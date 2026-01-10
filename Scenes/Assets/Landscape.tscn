@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://byimui1p1uj4y"]
+[gd_scene load_steps=3 format=3 uid="uid://byimui1p1uj4y"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fueqf"]
 size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jvnou"]
+size = Vector3(20, 1, 20)
 
 [node name="Landscape" type="Node3D"]
 
@@ -9,6 +12,12 @@ size = Vector2(20, 20)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain1"]
 mesh = SubResource("PlaneMesh_fueqf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_jvnou")
 
 [node name="Anchors" type="Node3D" parent="."]
 
