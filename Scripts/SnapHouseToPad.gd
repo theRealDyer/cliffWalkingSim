@@ -1,7 +1,6 @@
-'''
-this script snaps the house and landscape together in the main
-(world) environment so they stay connected where we want them.
-'''
+## this script snaps the house and landscape together in the main
+## (world) environment so they stay connected where we want them.
+
 
 @tool
 extends Node3D
@@ -10,10 +9,8 @@ extends Node3D
 @export var house_anchor: NodePath
 @export var pad_anchor: NodePath
 
-'''
-Clicking this check box in the inspector will snap the anchors to their specified place (as 
-defined in their own scenes); it will then reset back to false immediately.
-'''
+## Clicking this check box in the inspector will snap the anchors to their specified place (as 
+## defined in their own scenes); it will then reset back to false immediately.
 @export var snap_now: bool = false : set = _do_snap
 
 func _do_snap(v: bool) -> void:
