@@ -35,14 +35,14 @@ func _apply() -> void:
 	if not is_inside_tree():
 		return
 
-	var mesh_instance := get_node_or_null("MeshInstance3D") as MeshInstance3D
-	var collision_shape := get_node_or_null("Body/CollisionShape3D") as CollisionShape3D
+	var mesh_instance := get_node_or_null("Mesh") as MeshInstance3D
+	var collision_shape := get_node_or_null("Body/Collision") as CollisionShape3D
 	var body := get_node_or_null("Body") as Node3D
 
 	if mesh_instance == null or collision_shape == null or body == null:
 		return
 
-	# Visual mesh (BoxMesh)
+	# Visual mesh
 	var box_mesh := mesh_instance.mesh as BoxMesh
 	if box_mesh == null:
 		box_mesh = BoxMesh.new()
@@ -57,7 +57,7 @@ func _apply() -> void:
 
 	box_mesh.size = Vector3(_length, _height, _thickness)
 
-	# Collision (BoxShape3D)
+	# Collision
 	var box_shape := collision_shape.shape as BoxShape3D
 	if box_shape == null:
 		box_shape = BoxShape3D.new()
