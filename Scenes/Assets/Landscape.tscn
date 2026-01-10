@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://byimui1p1uj4y"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fueqf"]
+size = Vector2(20, 20)
+
+[node name="Landscape" type="Node3D"]
+
+[node name="Terrain1" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain1"]
+mesh = SubResource("PlaneMesh_fueqf")
+
+[node name="Anchors" type="Node3D" parent="."]
+
+[node name="HousePadAnchor" type="Marker3D" parent="Anchors"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

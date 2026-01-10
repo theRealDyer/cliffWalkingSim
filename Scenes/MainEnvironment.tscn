@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://h8d1aseqp8nd"]
+[gd_scene load_steps=12 format=3 uid="uid://h8d1aseqp8nd"]
 
-[ext_resource type="PackedScene" uid="uid://bkicm4njqe6av" path="res://Scenes/Player.tscn" id="1_qnkal"]
-[ext_resource type="PackedScene" uid="uid://batmwurvpsv4i" path="res://Scenes/wall.tscn" id="2_kcaew"]
+[ext_resource type="PackedScene" uid="uid://bkicm4njqe6av" path="res://Scenes/Assets/Player.tscn" id="1_qnkal"]
+[ext_resource type="PackedScene" uid="uid://byimui1p1uj4y" path="res://Scenes/Assets/Landscape.tscn" id="2_kcaew"]
+[ext_resource type="PackedScene" uid="uid://batmwurvpsv4i" path="res://Scenes/Assets/MainHouse.tscn" id="3_kqqtb"]
+[ext_resource type="Script" uid="uid://b5xjvfdsood8o" path="res://Scenes/SnapHouseToPad.gd" id="4_r0a3f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wcmyl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,47 +18,73 @@ sky = SubResource("Sky_cyi8u")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ji61o"]
-size = Vector2(20, 20)
+[sub_resource type="BoxMesh" id="BoxMesh_kqqtb"]
+resource_local_to_scene = true
+size = Vector3(2, 2.3, 0.2)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_52a1c"]
-data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+[sub_resource type="BoxShape3D" id="BoxShape3D_r0a3f"]
+resource_local_to_scene = true
+size = Vector3(2, 2.3, 0.2)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_qnkal"]
+[sub_resource type="BoxMesh" id="BoxMesh_4om8p"]
+resource_local_to_scene = true
+size = Vector3(2, 2.3, 0.2)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_kcaew"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_t43bo"]
+resource_local_to_scene = true
+size = Vector3(2, 2.3, 0.2)
 
-[node name="Node3D" type="Node3D"]
+[node name="MainEnvironment" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_540tv")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
-
-[node name="Floor" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_ji61o")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_52a1c")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11883, 2.65919)
-mesh = SubResource("CylinderMesh_qnkal")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0028560162, 0.014159918)
-shape = SubResource("CylinderShape3D_kcaew")
 
 [node name="Player" parent="." instance=ExtResource("1_qnkal")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9802833, 0)
 
-[node name="Wall" parent="." instance=ExtResource("2_kcaew")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.022297, -0.21167326, -4.2560735)
+[node name="Landscape" parent="." instance=ExtResource("2_kcaew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21721554, 0, -0.43014097)
 
-[editable path="Wall"]
+[node name="MainHouse" parent="." instance=ExtResource("3_kqqtb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21721554, 0, -0.43014097)
+
+[node name="MeshInstance3D" parent="MainHouse/Interior/Room1/WallSegment" index="0"]
+mesh = SubResource("BoxMesh_kqqtb")
+
+[node name="CollisionShape3D" parent="MainHouse/Interior/Room1/WallSegment/Body" index="0"]
+shape = SubResource("BoxShape3D_r0a3f")
+
+[node name="MeshInstance3D" parent="MainHouse/Interior/Room1/WallSegment2" index="0"]
+mesh = SubResource("BoxMesh_4om8p")
+
+[node name="CollisionShape3D" parent="MainHouse/Interior/Room1/WallSegment2/Body" index="0"]
+shape = SubResource("BoxShape3D_t43bo")
+
+[node name="MeshInstance3D" parent="MainHouse/Interior/Room1/WallSegment3" index="0"]
+mesh = SubResource("BoxMesh_4om8p")
+
+[node name="CollisionShape3D" parent="MainHouse/Interior/Room1/WallSegment3/Body" index="0"]
+shape = SubResource("BoxShape3D_t43bo")
+
+[node name="MeshInstance3D" parent="MainHouse/Interior/Room1/WallSegment4" index="0"]
+mesh = SubResource("BoxMesh_4om8p")
+
+[node name="CollisionShape3D" parent="MainHouse/Interior/Room1/WallSegment4/Body" index="0"]
+shape = SubResource("BoxShape3D_t43bo")
+
+[node name="SnapTools" type="Node3D" parent="."]
+script = ExtResource("4_r0a3f")
+house_root = NodePath("../MainHouse")
+house_anchor = NodePath("../MainHouse/Anchors/FrontDoorAnchor")
+pad_anchor = NodePath("../Landscape/Anchors/HousePadAnchor")
+
+[editable path="Landscape"]
+[editable path="MainHouse"]
+[editable path="MainHouse/Interior/Room1/WallSegment"]
+[editable path="MainHouse/Interior/Room1/WallSegment2"]
+[editable path="MainHouse/Interior/Room1/WallSegment3"]
+[editable path="MainHouse/Interior/Room1/WallSegment4"]

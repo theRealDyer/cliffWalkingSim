@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8iyudf3it007"]
+
+[ext_resource type="Script" uid="uid://hbvyqg57hpxn" path="res://Scripts/WallSegment.gd" id="1_ihkco"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ssjs0"]
+resource_local_to_scene = true
+size = Vector3(2, 2.3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ypb2"]
+size = Vector3(2, 2.3, 0.2)
+
+[node name="WallSegment" type="Node3D"]
+script = ExtResource("1_ihkco")
+length = null
+height = null
+thickness = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ssjs0")
+
+[node name="Body" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body"]
+shape = SubResource("BoxShape3D_3ypb2")
