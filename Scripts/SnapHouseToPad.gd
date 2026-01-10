@@ -9,8 +9,9 @@ extends Node3D
 @export var house_anchor: NodePath
 @export var pad_anchor: NodePath
 
-## Clicking this check box in the inspector will snap the anchors to their specified place (as 
-## defined in their own scenes); it will then reset back to false immediately.
+## Clicking this check box in the inspector will snap the anchors to their
+## specified place (as defined in their own scenes); it will then reset back
+## to false immediately.
 @export var snap_now: bool = false : set = _do_snap
 
 func _do_snap(v: bool) -> void:
@@ -29,7 +30,10 @@ func _do_snap(v: bool) -> void:
 		return
 
 	# Transform of house_anchor in house_root local space
-	var house_to_anchor: Transform3D = house.global_transform.affine_inverse() * h_anchor.global_transform
+	var house_to_anchor:Transform3D = (
+		house.global_transform.affine_inverse()
+		* h_anchor.global_transform
+		)
 
 	# We want: house.global = pad.global * inverse(house_to_anchor)
 	house.global_transform = p_anchor.global_transform * house_to_anchor.affine_inverse()
