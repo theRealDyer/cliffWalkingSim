@@ -1,9 +1,7 @@
-'''
-This is just a designer tool that helps keep the MeshInstance and
-CollisionShape the same size (using exported inspector variables whilst we’re
-using simple greybox assets. Later, we’ll bring in our own (or downloaded)
-assets and CollisionShape will get resized as its own thing.
-'''
+## This is just a designer tool that helps keep the MeshInstance and
+## CollisionShape the same size (using exported inspector variables whilst we’re
+## using simple greybox assets. Later, we’ll bring in our own (or downloaded)
+## assets and CollisionShape will get resized as its own thing.
 
 @tool
 extends Node3D
@@ -50,10 +48,8 @@ func _apply() -> void:
 		box_mesh = BoxMesh.new()
 		mesh_instance.mesh = box_mesh
 	else:
-		'''
-		This ensures per-instance edits don't affect other walls when the 
-		resource is shared.
-		'''
+		## This ensures per-instance edits don't affect other walls when the 
+		## resource is shared.
 		if not box_mesh.resource_local_to_scene:
 			box_mesh = box_mesh.duplicate()
 			box_mesh.resource_local_to_scene = true
