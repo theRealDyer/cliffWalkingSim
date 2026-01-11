@@ -30,7 +30,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		if current_interactable:
 			# If there is an interactable, use it's interact function
 			current_interactable.interact()
-			
+
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -60,6 +61,7 @@ func _physics_process(delta: float) -> void:
 
 func set_current_interactable(obj) -> void:
 	current_interactable = obj
+
 
 func clear_current_interactable():
 	current_interactable = null
