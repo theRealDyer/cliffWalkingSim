@@ -10,6 +10,7 @@ const MAX_PITCH := deg_to_rad(60)
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var current_interactable = null # Sets the current interactable object if any
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
 
@@ -25,7 +26,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotate_x(-event.relative.y * mouse_sensitivity)
 			camera.rotation.x = clamp(camera.rotation.x, MIN_PITCH, MAX_PITCH)
 
-
+	if event.is_action_pressed("interact"):
+		if current_interactable:
+			# If there is an interactable, use it's interact function
+			current_interactable.interact()
+			
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -51,3 +56,10 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
+
+
+func set_current_interactable(obj) -> void:
+	current_interactable = obj
+
+func clear_current_interactable():
+	current_interactable = null

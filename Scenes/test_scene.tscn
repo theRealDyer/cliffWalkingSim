@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnfp4vd6ucrro"]
+
+[ext_resource type="PackedScene" uid="uid://bkicm4njqe6av" path="res://Scenes/Assets/Player.tscn" id="1_3dogw"]
+[ext_resource type="PackedScene" uid="uid://byimui1p1uj4y" path="res://Scenes/Assets/Landscape.tscn" id="2_r5l72"]
+[ext_resource type="PackedScene" uid="uid://c1xr0w6jwlmxf" path="res://Scenes/Assets/Door.tscn" id="3_50ct6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r5l72"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_cyi8u"]
+sky_material = SubResource("ProceduralSkyMaterial_r5l72")
+
+[sub_resource type="Environment" id="Environment_50ct6"]
+background_mode = 2
+sky = SubResource("Sky_cyi8u")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="TestScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_50ct6")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_3dogw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9802833, 0)
+
+[node name="Landscape" parent="." instance=ExtResource("2_r5l72")]
+
+[node name="Door" parent="." instance=ExtResource("3_50ct6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1745393, -1.737638)
