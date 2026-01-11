@@ -14,6 +14,10 @@ config/name="cliffWalkingSim"
 run/main_scene="uid://h8d1aseqp8nd"
 config/features=PackedStringArray("4.5", "Forward Plus")
 
+[dotnet]
+
+project/assembly_name="cliffWalkingSim"
+
 [filesystem]
 
 import/fbx/enabled=false

@@ -22,4 +22,4 @@ jobs:
           chmod +x /usr/local/bin/gdscript-format
 
       - name: Lint only
-        run: find Scripts/ -name "*.gd" | xargs gdscript-format lint
+        run: find Scripts/ -name "*.gd" | xargs gdscript-format lint --pretty
