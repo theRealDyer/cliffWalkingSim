@@ -31,6 +31,6 @@ environment = ExtResource("2_fd3dh")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Ocean" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40.845, 0)
 material_override = SubResource("StandardMaterial3D_fd3dh")
 mesh = SubResource("PlaneMesh_fd3dh")
