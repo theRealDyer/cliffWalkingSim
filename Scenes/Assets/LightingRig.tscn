@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://27r2p18qdw46"]
+
+[ext_resource type="Script" uid="uid://5v055fb2bwuf" path="res://Scripts/lighting_rig.gd" id="1_m8mnh"]
+[ext_resource type="Environment" uid="uid://du5tymd8uy3xh" path="res://Lighting/Environments/env_morning_sunny.tres" id="2_fd3dh"]
+[ext_resource type="Environment" uid="uid://cva2wm20o3d5j" path="res://Lighting/Environments/env_afternoon_overcast.tres" id="3_dmuyj"]
+[ext_resource type="Environment" uid="uid://c5cyf4wqw5sfc" path="res://Lighting/Environments/env_evening_sunset.tres" id="4_cvin0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fd3dh"]
+albedo_color = Color(0.17817432, 0.5571298, 0.6874807, 1)
+roughness = 0.2
+normal_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fd3dh"]
+size = Vector2(3000, 3000)
+subdivide_width = 200
+subdivide_depth = 200
+
+[node name="LightingRig" type="Node3D"]
+script = ExtResource("1_m8mnh")
+morning_env = ExtResource("2_fd3dh")
+afternoon_env = ExtResource("3_dmuyj")
+evening_env = ExtResource("4_cvin0")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+visible = false
+shadow_enabled = true
+
+[node name="WorldEnv" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_fd3dh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Ocean" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+material_override = SubResource("StandardMaterial3D_fd3dh")
+mesh = SubResource("PlaneMesh_fd3dh")

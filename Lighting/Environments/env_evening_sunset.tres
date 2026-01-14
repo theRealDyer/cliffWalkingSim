@@ -1,0 +1,13 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://c5cyf4wqw5sfc"]
+
+[ext_resource type="Texture2D" uid="uid://c2vj1cofmmoa8" path="res://Lighting/Skies/belfast_sunset_puresky_4k.exr" id="1_85usy"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lkmop"]
+panorama = ExtResource("1_85usy")
+
+[sub_resource type="Sky" id="Sky_yn1ub"]
+sky_material = SubResource("PanoramaSkyMaterial_lkmop")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_yn1ub")
