@@ -11,7 +11,7 @@ func _do_snap(v: bool) -> void:
 	if not v:
 		return
 	_snap()
-	# leave snap_now alone (you can untick/re-tick to run again)
+	# leave snap_now alone (untick/re-tick to run again)
 
 func _snap() -> void:
 	if not is_inside_tree():
@@ -31,7 +31,9 @@ func _snap() -> void:
 
 	#print("BEFORE:", h_anchor.global_position, " | ", p_anchor.global_position)
 
-	var house_to_anchor: Transform3D = house.global_transform.affine_inverse() * h_anchor.global_transform
+	var house_to_anchor: Transform3D = (
+		house.global_transform.affine_inverse() * h_anchor.global_transform
+		)
 	house.global_transform = p_anchor.global_transform * house_to_anchor.affine_inverse()
 
 	#print("AFTER: ", h_anchor.global_position, " | ", p_anchor.global_position)
