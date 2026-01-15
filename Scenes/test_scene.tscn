@@ -33,7 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9802833, 0)
 [node name="Landscape" parent="." instance=ExtResource("2_r5l72")]
 
 [node name="Door" parent="." instance=ExtResource("3_50ct6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1745393, -1.737638)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16706169, 1.1599573, -1.7298704)
 
 [node name="DoorwaySegment" parent="." instance=ExtResource("4_hb2xm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45282638, 0, -1.7875642)

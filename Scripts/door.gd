@@ -51,7 +51,7 @@ func interact():
 		tween.tween_property(
 			self,
 			"rotation_degrees:y",
-			-door_motion_speed,
+			-door_motion_angle,
 			door_motion_speed,
 		).as_relative()
 		door_opened = false
