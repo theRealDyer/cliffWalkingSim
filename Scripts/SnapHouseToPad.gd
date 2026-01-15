@@ -29,11 +29,7 @@ func _snap() -> void:
 		push_warning("Snap failed: house_anchor is not a child of house_root. Check NodePaths.")
 		return
 
-	#print("BEFORE:", h_anchor.global_position, " | ", p_anchor.global_position)
-
 	var house_to_anchor: Transform3D = (
 		house.global_transform.affine_inverse() * h_anchor.global_transform
 		)
 	house.global_transform = p_anchor.global_transform * house_to_anchor.affine_inverse()
-
-	#print("AFTER: ", h_anchor.global_position, " | ", p_anchor.global_position)
