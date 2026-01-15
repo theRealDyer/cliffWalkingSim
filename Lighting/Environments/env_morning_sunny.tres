@@ -1,0 +1,14 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://du5tymd8uy3xh"]
+
+[ext_resource type="Texture2D" uid="uid://dkrfop6gh6loj" path="res://Lighting/Skies/autumn_field_puresky_4k.exr" id="1_ewk36"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6qf70"]
+panorama = ExtResource("1_ewk36")
+
+[sub_resource type="Sky" id="Sky_aupby"]
+sky_material = SubResource("PanoramaSkyMaterial_6qf70")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_aupby")
+fog_depth_end = 1482.4

@@ -1,82 +1,72 @@
-[gd_scene load_steps=20 format=3 uid="uid://h8d1aseqp8nd"]
+[gd_scene load_steps=19 format=3 uid="uid://h8d1aseqp8nd"]
 
 [ext_resource type="PackedScene" uid="uid://bkicm4njqe6av" path="res://Scenes/Assets/Player.tscn" id="1_qnkal"]
+[ext_resource type="PackedScene" uid="uid://27r2p18qdw46" path="res://Scenes/Assets/LightingRig.tscn" id="1_r0a3f"]
 [ext_resource type="PackedScene" uid="uid://byimui1p1uj4y" path="res://Scenes/Assets/Landscape.tscn" id="2_kcaew"]
 [ext_resource type="PackedScene" uid="uid://batmwurvpsv4i" path="res://Scenes/Assets/mainHouse.tscn" id="3_kqqtb"]
 [ext_resource type="Script" uid="uid://b5xjvfdsood8o" path="res://Scripts/SnapHouseToPad.gd" id="4_r0a3f"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wcmyl"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_cyi8u"]
-sky_material = SubResource("ProceduralSkyMaterial_wcmyl")
-
-[sub_resource type="Environment" id="Environment_540tv"]
-background_mode = 2
-sky = SubResource("Sky_cyi8u")
-tonemap_mode = 2
-glow_enabled = true
+[ext_resource type="Script" uid="uid://ds2oex1emjjyv" path="res://Scripts/debug_act_switcher.gd" id="6_4om8p"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kqqtb"]
 resource_local_to_scene = true
-size = Vector3(5, 3, 0.2)
+size = Vector3(5, 4, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r0a3f"]
 resource_local_to_scene = true
-size = Vector3(5, 3, 0.2)
+size = Vector3(5, 4, 0.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4om8p"]
 resource_local_to_scene = true
-size = Vector3(5, 3, 0.2)
+size = Vector3(5, 4, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t43bo"]
 resource_local_to_scene = true
-size = Vector3(5, 3, 0.2)
+size = Vector3(5, 4, 0.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_p52pj"]
 resource_local_to_scene = true
-size = Vector3(5, 3, 0.2)
+size = Vector3(10, 4, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ubxw"]
 resource_local_to_scene = true
-size = Vector3(5, 3, 0.2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_r0a3f"]
-size = Vector3(1.85, 3, 0.2)
+size = Vector3(10, 4, 0.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_t43bo"]
-size = Vector3(1.85, 3, 0.2)
+size = Vector3(4, 4, 0.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7ubxw"]
-size = Vector3(1.3, 0.7, 0.2)
+size = Vector3(4, 4, 0.2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ukpuk"]
-size = Vector3(1.85, 3, 0.2)
+[sub_resource type="BoxMesh" id="BoxMesh_ukpuk"]
+size = Vector3(2, 1, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0imy5"]
-size = Vector3(1.85, 3, 0.2)
+size = Vector3(4, 4, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0acth"]
-size = Vector3(1.3, 0.7, 0.2)
+size = Vector3(4, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xhyl2"]
+size = Vector3(2, 1, 0.2)
 
 [node name="MainEnvironment" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_540tv")
+[node name="LightingRig" parent="." instance=ExtResource("1_r0a3f")]
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
+[node name="SnapTools" type="Node3D" parent="."]
+script = ExtResource("4_r0a3f")
+house_root = NodePath("../MainHouse")
+house_anchor = NodePath("../MainHouse/Anchors/FrontDoorAnchor")
+pad_anchor = NodePath("../Landscape/Anchors/HousePadAnchor")
 
 [node name="Player" parent="." instance=ExtResource("1_qnkal")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9802833, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6048133, -0.014397025, 0.83188105)
 
 [node name="Landscape" parent="." instance=ExtResource("2_kcaew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21721554, 0, -0.43014097)
 
 [node name="MainHouse" parent="." instance=ExtResource("3_kqqtb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21721554, 0, -0.43014097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0073538, -0.7179134, -0.43014097)
 
 [node name="Mesh" parent="MainHouse/Interior/Room1/WallSegment" index="0"]
 mesh = SubResource("BoxMesh_kqqtb")
@@ -97,28 +87,41 @@ mesh = SubResource("BoxMesh_p52pj")
 shape = SubResource("BoxShape3D_7ubxw")
 
 [node name="Left" parent="MainHouse/Interior/Room1/DoorwaySegment/Visual" index="0"]
-mesh = SubResource("BoxMesh_r0a3f")
-
-[node name="Right" parent="MainHouse/Interior/Room1/DoorwaySegment/Visual" index="1"]
 mesh = SubResource("BoxMesh_t43bo")
 
-[node name="Header" parent="MainHouse/Interior/Room1/DoorwaySegment/Visual" index="2"]
+[node name="Right" parent="MainHouse/Interior/Room1/DoorwaySegment/Visual" index="1"]
 mesh = SubResource("BoxMesh_7ubxw")
 
-[node name="LeftCol" parent="MainHouse/Interior/Room1/DoorwaySegment/Body" index="0"]
-shape = SubResource("BoxShape3D_ukpuk")
+[node name="Header" parent="MainHouse/Interior/Room1/DoorwaySegment/Visual" index="2"]
+mesh = SubResource("BoxMesh_ukpuk")
 
-[node name="RightCol" parent="MainHouse/Interior/Room1/DoorwaySegment/Body" index="1"]
+[node name="LeftCol" parent="MainHouse/Interior/Room1/DoorwaySegment/Body" index="0"]
 shape = SubResource("BoxShape3D_0imy5")
 
-[node name="HeaderCol" parent="MainHouse/Interior/Room1/DoorwaySegment/Body" index="2"]
+[node name="RightCol" parent="MainHouse/Interior/Room1/DoorwaySegment/Body" index="1"]
 shape = SubResource("BoxShape3D_0acth")
 
-[node name="SnapTools" type="Node3D" parent="."]
-script = ExtResource("4_r0a3f")
-house_root = NodePath("../MainHouse")
-house_anchor = NodePath("../MainHouse/Anchors/FrontDoorAnchor")
-pad_anchor = NodePath("../Landscape/Anchors/HousePadAnchor")
+[node name="HeaderCol" parent="MainHouse/Interior/Room1/DoorwaySegment/Body" index="2"]
+shape = SubResource("BoxShape3D_xhyl2")
+
+[node name="Spawns" type="Node3D" parent="."]
+
+[node name="MorningSpawn" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1617675, 0, -6.5993767)
+
+[node name="AfternoonSpawn" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.511936, 0, -1.4842191)
+
+[node name="EveningSpawn" type="Marker3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0573616, 0, 5.7349105)
+
+[node name="DebugActSwitcher" type="Node3D" parent="."]
+script = ExtResource("6_4om8p")
+lighting_rig_path = NodePath("../LightingRig")
+player_path = NodePath("../Player")
+morning_spawn_path = NodePath("../Spawns/MorningSpawn")
+afternoon_spawn_path = NodePath("../Spawns/AfternoonSpawn")
+evening_spawn_path = NodePath("../Spawns/EveningSpawn")
 
 [editable path="Landscape"]
 [editable path="MainHouse"]
