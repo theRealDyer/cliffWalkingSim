@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://byimui1p1uj4y"]
+[gd_scene load_steps=4 format=3 uid="uid://byimui1p1uj4y"]
+
+[ext_resource type="PackedScene" uid="uid://cqwyv0d8j731u" path="res://Assets/terrain_blockout.glb" id="1_cn4v6"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fueqf"]
 size = Vector2(20, 20)
@@ -9,6 +11,7 @@ size = Vector3(20, 1, 20)
 [node name="Landscape" type="Node3D"]
 
 [node name="Terrain1" type="Node3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain1"]
 mesh = SubResource("PlaneMesh_fueqf")
@@ -22,5 +25,9 @@ shape = SubResource("BoxShape3D_jvnou")
 [node name="Anchors" type="Node3D" parent="."]
 
 [node name="HousePadAnchor" type="Marker3D" parent="Anchors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7179134, 0)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="terrain_blockout" parent="." instance=ExtResource("1_cn4v6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.431, -0.885, -40.102)
