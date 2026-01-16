@@ -1,7 +1,3 @@
-## this script snaps the house and landscape together in the main
-## (world) environment so they stay connected where we want them.
-
-
 @tool
 extends Node3D
 
@@ -9,15 +5,15 @@ extends Node3D
 @export var house_anchor: NodePath
 @export var pad_anchor: NodePath
 
-## Clicking this check box in the inspector will snap the anchors to their
-## specified place (as defined in their own scenes); it will then reset back
-## to false immediately.
 @export var snap_now: bool = false : set = _do_snap
 
 func _do_snap(v: bool) -> void:
-	snap_now = false
 	if not v:
 		return
+	_snap()
+	# leave snap_now alone (untick/re-tick to run again)
+
+func _snap() -> void:
 	if not is_inside_tree():
 		return
 
@@ -29,11 +25,11 @@ func _do_snap(v: bool) -> void:
 		push_warning("Snap failed: assign house_root, house_anchor, pad_anchor.")
 		return
 
-	# Transform of house_anchor in house_root local space
-	var house_to_anchor:Transform3D = (
-		house.global_transform.affine_inverse()
-		* h_anchor.global_transform
-		)
+	if not house.is_ancestor_of(h_anchor):
+		push_warning("Snap failed: house_anchor is not a child of house_root. Check NodePaths.")
+		return
 
-	# We want: house.global = pad.global * inverse(house_to_anchor)
+	var house_to_anchor: Transform3D = (
+		house.global_transform.affine_inverse() * h_anchor.global_transform
+		)
 	house.global_transform = p_anchor.global_transform * house_to_anchor.affine_inverse()

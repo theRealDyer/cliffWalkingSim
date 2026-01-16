@@ -1,0 +1,13 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://cva2wm20o3d5j"]
+
+[ext_resource type="Texture2D" uid="uid://c552khj38nvil" path="res://Lighting/Skies/overcast_soil_puresky_4k.exr" id="1_rfd8l"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ihjkh"]
+panorama = ExtResource("1_rfd8l")
+
+[sub_resource type="Sky" id="Sky_r6mas"]
+sky_material = SubResource("PanoramaSkyMaterial_ihjkh")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_r6mas")
