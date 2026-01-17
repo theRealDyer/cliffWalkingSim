@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1ne7up15ifl6"]
+
+[ext_resource type="Script" uid="uid://dxeelfhoxl5k7" path="res://Scripts/interaction_prompt_ui.gd" id="1_dfqia"]
+
+[node name="InteractionPromptUi" type="CanvasLayer"]
+script = ExtResource("1_dfqia")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+fit_content = true
+autowrap_mode = 0

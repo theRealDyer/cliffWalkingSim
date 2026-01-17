@@ -9,8 +9,9 @@
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ota4u"]
 frustum_focal_length = 15.0
 
-[node name="CharacterBody3D" type="CharacterBody3D" groups=["Player"]]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("interaction_ray") groups=["Player"]]
 script = ExtResource("1_rpqav")
+interaction_ray = NodePath("Neck/Camera3D/RayCast3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16484, 0)
@@ -25,3 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83231, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Neck"]
 attributes = SubResource("CameraAttributesPhysical_ota4u")
+
+[node name="RayCast3D" type="RayCast3D" parent="Neck/Camera3D"]
+target_position = Vector3(0, 0, -2)
+collision_mask = 16
