@@ -8,7 +8,10 @@ var _last_world_position: Vector3
 
 @onready var label = $PanelContainer/MarginContainer/RichTextLabel
 
-
+func _ready() -> void:
+	visible = false
+	
+	
 func _process(_delta) -> void:
 	if visible:
 		# Keep it close to the object
