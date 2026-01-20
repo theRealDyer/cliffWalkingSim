@@ -31,13 +31,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21721554, 0, -0.43014097)
 [node name="Spawns" type="Node3D" parent="."]
 
 [node name="MorningSpawn" type="Marker3D" parent="Spawns"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1617675, 0, -6.5993767)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6881609, -0.45302814, -3.037358)
 
 [node name="AfternoonSpawn" type="Marker3D" parent="Spawns"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.511936, 0, -1.4842191)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.321369, -0.66517174, -1.3588438)
 
 [node name="EveningSpawn" type="Marker3D" parent="Spawns"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0573616, 0, 5.7349105)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6855621, -0.48761415, 6.715131)
 
 [node name="DebugActSwitcher" type="Node3D" parent="."]
 script = ExtResource("6_4om8p")
