@@ -1,24 +1,22 @@
+extends Node3D
 ## This script sets up the three different parts of the day and loads their
 ## environments
-
-extends Node3D
 
 enum Part { MORNING, AFTERNOON, EVENING }
 
 @export var morning_env: Environment
 @export var afternoon_env: Environment
 @export var evening_env: Environment
-
 @export var morning_sun_energy: float = 1.2
 @export var afternoon_sun_energy: float = 0.6
 @export var evening_sun_energy: float = 0.8
-
 @export var morning_sun_color: Color = Color(1, 1, 1)
 @export var afternoon_sun_color: Color = Color(0.95, 0.97, 1.0)
 @export var evening_sun_color: Color = Color(1.0, 0.85, 0.7)
 
 @onready var world_env: WorldEnvironment = $WorldEnv
 @onready var sun: DirectionalLight3D = $Sun
+
 
 func apply_part(part: Part) -> void:
 	match part:

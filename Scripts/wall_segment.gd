@@ -1,35 +1,37 @@
+@tool
+extends Node3D
 ## This is just a designer tool that helps keep the MeshInstance and
 ## CollisionShape the same size (using exported inspector variables whilst we’re
 ## using simple greybox assets. Later, we’ll bring in our own (or downloaded)
 ## assets and CollisionShape will get resized as its own thing.
 
-@tool
-extends Node3D
+@export var length: float:
+	get:
+		return _length
+	set(value):
+		_length = max(value, 0.01)
+		_apply()
+@export var height: float:
+	get:
+		return _height
+	set(value):
+		_height = max(value, 0.01)
+		_apply()
+@export var thickness: float:
+	get:
+		return _thickness
+	set(value):
+		_thickness = max(value, 0.01)
+		_apply()
 
 var _length := 2.0
 var _height := 2.3
 var _thickness := 0.2
 
-@export var length: float:
-	get: return _length
-	set(value):
-		_length = max(value, 0.01)
-		_apply()
-
-@export var height: float:
-	get: return _height
-	set(value):
-		_height = max(value, 0.01)
-		_apply()
-
-@export var thickness: float:
-	get: return _thickness
-	set(value):
-		_thickness = max(value, 0.01)
-		_apply()
 
 func _ready() -> void:
 	_apply()
+
 
 func _apply() -> void:
 	if not is_inside_tree():
@@ -48,7 +50,7 @@ func _apply() -> void:
 		box_mesh = BoxMesh.new()
 		mesh_instance.mesh = box_mesh
 	else:
-		## This ensures per-instance edits don't affect other walls when the 
+		## This ensures per-instance edits don't affect other walls when the
 		## resource is shared.
 		if not box_mesh.resource_local_to_scene:
 			box_mesh = box_mesh.duplicate()

@@ -2,17 +2,16 @@ extends Node
 
 @export var lighting_rig_path: NodePath
 @export var player_path: NodePath
-
 @export var morning_spawn_path: NodePath
 @export var afternoon_spawn_path: NodePath
 @export var evening_spawn_path: NodePath
 
 @onready var lighting_rig = get_node(lighting_rig_path)
 @onready var player: Node3D = get_node(player_path)
-
 @onready var morning_spawn: Node3D = get_node(morning_spawn_path)
 @onready var afternoon_spawn: Node3D = get_node(afternoon_spawn_path)
 @onready var evening_spawn: Node3D = get_node(evening_spawn_path)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
@@ -23,6 +22,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				_set_act(1)
 			KEY_3:
 				_set_act(2)
+
 
 func _set_act(act_index: int) -> void:
 	# apply lighting preset
