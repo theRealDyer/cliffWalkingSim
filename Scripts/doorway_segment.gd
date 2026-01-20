@@ -6,23 +6,19 @@ extends Node3D
 	set(v):
 		wall_length = max(v, 0.2)
 		_apply()
-
 @export var wall_height: float = 2.4:
 	set(v):
 		wall_height = max(v, 0.2)
 		_apply()
-
 @export var thickness: float = 0.2:
 	set(v):
 		thickness = max(v, 0.02)
 		_apply()
-
 # Door opening size
 @export var door_width: float = 0.9:
 	set(v):
 		door_width = max(v, 0.2)
 		_apply()
-
 @export var door_height: float = 2.0:
 	set(v):
 		door_height = max(v, 0.2)
@@ -31,13 +27,14 @@ extends Node3D
 @onready var left_vis: MeshInstance3D = $Visual/Left
 @onready var right_vis: MeshInstance3D = $Visual/Right
 @onready var header_vis: MeshInstance3D = $Visual/Header
-
 @onready var left_col: CollisionShape3D = $Body/LeftCol
 @onready var right_col: CollisionShape3D = $Body/RightCol
 @onready var header_col: CollisionShape3D = $Body/HeaderCol
 
+
 func _ready() -> void:
 	_apply()
+
 
 func _apply() -> void:
 	if not is_inside_tree():
@@ -73,11 +70,13 @@ func _apply() -> void:
 	_set_col(right_col, right_size, Vector3(x_right, y_center_wall, 0.0))
 	_set_col(header_col, header_size, Vector3(0.0, y_center_header, 0.0))
 
+
 func _set_box(mi: MeshInstance3D, size: Vector3, pos: Vector3) -> void:
 	var bm := BoxMesh.new()
 	bm.size = size
 	mi.mesh = bm
 	mi.position = pos
+
 
 func _set_col(cs: CollisionShape3D, size: Vector3, pos: Vector3) -> void:
 	var shape := BoxShape3D.new()

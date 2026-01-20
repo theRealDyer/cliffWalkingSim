@@ -103,7 +103,6 @@ func update_interactable():
 				current_interactable = interactable
 				prompt_ui.show_prompt(
 					interactable.get_interaction_text(),
-					interaction_ray.get_collision_point(),
 				)
 			return
 

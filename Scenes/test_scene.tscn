@@ -29,7 +29,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("prompt_ui") instance=ExtResource("1_3dogw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9802833, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9802833, 3.5869994)
 prompt_ui = NodePath("../InteractionPromptUi")
 
 [node name="Landscape" parent="." instance=ExtResource("2_r5l72")]

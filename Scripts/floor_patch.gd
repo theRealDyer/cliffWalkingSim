@@ -1,21 +1,18 @@
+@tool
+extends Node3D
 ## This is just a designer tool that helps keep the MeshInstance and
 ## CollisionShape the same size (using exported inspector variables whilst we’re
 ## using simple greybox assets. Later, we’ll bring in our own (or downloaded)
 ## assets and CollisionShape will get resized as its own thing.
 
-@tool
-extends Node3D
-
 @export var width: float = 2.0:
 	set(v):
 		width = max(v, 0.01)
 		_apply()
-
 @export var depth: float = 2.0:
 	set(v):
 		depth = max(v, 0.01)
 		_apply()
-
 # Collision thickness
 @export var thickness: float = 0.2:
 	set(v):
@@ -26,8 +23,10 @@ extends Node3D
 @onready var body: StaticBody3D = $Body
 @onready var collision: CollisionShape3D = $Body/Collision
 
+
 func _ready() -> void:
 	_apply()
+
 
 func _apply() -> void:
 	if not is_inside_tree():
