@@ -11,7 +11,7 @@ enum Part { MORNING, AFTERNOON, EVENING }
 
 @export var morning_sun_energy: float = 1.2
 @export var afternoon_sun_energy: float = 0.6
-@export var evening_sun_energy: float = 0.9
+@export var evening_sun_energy: float = 0.8
 
 @export var morning_sun_color: Color = Color(1, 1, 1)
 @export var afternoon_sun_color: Color = Color(0.95, 0.97, 1.0)
