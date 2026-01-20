@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://wjioig0eu1g0" path="res://Scripts/floor_patch.gd" id="1_jdbng"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_jdbng"]
+[sub_resource type="BoxMesh" id="BoxMesh_jdbng"]
+size = Vector3(2, 0.2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_blxmy"]
 size = Vector3(2, 0.2, 2)
@@ -11,10 +12,9 @@ size = Vector3(2, 0.2, 2)
 script = ExtResource("1_jdbng")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_jdbng")
+mesh = SubResource("BoxMesh_jdbng")
 
 [node name="Body" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
 [node name="Collision" type="CollisionShape3D" parent="Body"]
 shape = SubResource("BoxShape3D_blxmy")
