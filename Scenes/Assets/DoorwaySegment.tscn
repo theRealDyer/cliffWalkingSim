@@ -3,53 +3,54 @@
 [ext_resource type="Script" uid="uid://ca56ltslxmkar" path="res://Scripts/doorway_segment.gd" id="1_0ywvp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0ywvp"]
-size = Vector3(0.85, 3, 0.2)
+size = Vector3(4.35, 3.5, 0.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5vrgi"]
-size = Vector3(0.85, 3, 0.2)
+size = Vector3(4.35, 3.5, 0.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_uge12"]
-size = Vector3(1.3, 0.7, 0.2)
+size = Vector3(1.3, 1.2, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j6n7f"]
-size = Vector3(0.85, 3, 0.2)
+size = Vector3(4.35, 3.5, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gxobr"]
-size = Vector3(0.85, 3, 0.2)
+size = Vector3(4.35, 3.5, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q6p6l"]
-size = Vector3(1.3, 0.7, 0.2)
+size = Vector3(1.3, 1.2, 0.2)
 
 [node name="DoorwaySegment" type="Node3D"]
 script = ExtResource("1_0ywvp")
-wall_height = 3.0
+wall_length = 10.0
+wall_height = 3.5
 door_width = 1.3
 door_height = 2.3
 
 [node name="Visual" type="Node3D" parent="."]
 
 [node name="Left" type="MeshInstance3D" parent="Visual"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.075, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.825, 1.75, 0)
 mesh = SubResource("BoxMesh_0ywvp")
 
 [node name="Right" type="MeshInstance3D" parent="Visual"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.075, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.825, 1.75, 0)
 mesh = SubResource("BoxMesh_5vrgi")
 
 [node name="Header" type="MeshInstance3D" parent="Visual"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0)
 mesh = SubResource("BoxMesh_uge12")
 
 [node name="Body" type="StaticBody3D" parent="."]
 
 [node name="LeftCol" type="CollisionShape3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.075, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.825, 1.75, 0)
 shape = SubResource("BoxShape3D_j6n7f")
 
 [node name="RightCol" type="CollisionShape3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.075, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.825, 1.75, 0)
 shape = SubResource("BoxShape3D_gxobr")
 
 [node name="HeaderCol" type="CollisionShape3D" parent="Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 0)
 shape = SubResource("BoxShape3D_q6p6l")

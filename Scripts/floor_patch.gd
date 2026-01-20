@@ -34,14 +34,11 @@ func _apply() -> void:
 		return
 
 	# Visual
-	var plane := PlaneMesh.new()
-	plane.size = Vector2(width, depth)
-	mesh_instance.mesh = plane
+	var box := BoxMesh.new()
+	box.size = Vector3(width, thickness, depth)
+	mesh_instance.mesh = box
 
 	# Collision
 	var shape := BoxShape3D.new()
 	shape.size = Vector3(width, thickness, depth)
 	collision.shape = shape
-
-	# Put collision so the top surface is at y = 0
-	body.position.y = -thickness * 0.5
