@@ -3,12 +3,15 @@ extends CharacterBody3D
 const MIN_PITCH := deg_to_rad(-60)
 const MAX_PITCH := deg_to_rad(60)
 
+@export_group("Interactions")
 @export var interaction_ray: RayCast3D
 @export var prompt_ui: InteractablePromptUI
 @export_group("Movement")
 @export var speed := 5.0
 @export var jump_velocity := 4.5
 @export var mouse_sensitivity := 0.005
+
+
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
