@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://h8d1aseqp8nd"]
+[gd_scene load_steps=7 format=3 uid="uid://h8d1aseqp8nd"]
 
 [ext_resource type="PackedScene" uid="uid://bkicm4njqe6av" path="res://Scenes/Assets/Player.tscn" id="1_qnkal"]
 [ext_resource type="PackedScene" uid="uid://27r2p18qdw46" path="res://Scenes/Assets/LightingRig.tscn" id="1_r0a3f"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://batmwurvpsv4i" path="res://Scenes/Assets/mainHouse.tscn" id="3_kqqtb"]
 [ext_resource type="Script" uid="uid://b5xjvfdsood8o" path="res://Scripts/SnapHouseToPad.gd" id="4_r0a3f"]
 [ext_resource type="Script" uid="uid://ds2oex1emjjyv" path="res://Scripts/debug_act_switcher.gd" id="6_4om8p"]
-[ext_resource type="PackedScene" uid="uid://b1ne7up15ifl6" path="res://Scenes/Assets/InteractionPromptUI.tscn" id="7_t43bo"]
 
 [node name="MainEnvironment" type="Node3D"]
 
@@ -20,7 +19,7 @@ pad_anchor = NodePath("../Landscape/Anchors/HousePadAnchor")
 
 [node name="Player" parent="." node_paths=PackedStringArray("prompt_ui") instance=ExtResource("1_qnkal")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1203768, -0.014397025, -1.0890306)
-prompt_ui = NodePath("../InteractionPromptUi")
+prompt_ui = NodePath("")
 
 [node name="MainHouse" parent="." instance=ExtResource("3_kqqtb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85054064, -0.7179134, -0.43014097)
@@ -46,8 +45,6 @@ player_path = NodePath("../Player")
 morning_spawn_path = NodePath("../Spawns/MorningSpawn")
 afternoon_spawn_path = NodePath("../Spawns/AfternoonSpawn")
 evening_spawn_path = NodePath("../Spawns/EveningSpawn")
-
-[node name="InteractionPromptUi" parent="." instance=ExtResource("7_t43bo")]
 
 [editable path="MainHouse"]
 [editable path="Landscape"]
