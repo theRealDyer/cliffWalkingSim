@@ -23,7 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1203768, -0.014397025, -1.
 prompt_ui = NodePath("../InteractionPromptUi")
 
 [node name="MainHouse" parent="." instance=ExtResource("3_kqqtb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85054064, -0.7179134, -0.43014097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85054064, -0.13639998, -0.43014097)
 
 [node name="Landscape" parent="." instance=ExtResource("2_kcaew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21721554, 0, -0.43014097)
