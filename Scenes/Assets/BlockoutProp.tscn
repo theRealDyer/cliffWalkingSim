@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cnf228buw55yp" path="res://Scripts/blockout_prop.gd" id="1_ax2cj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ax2cj"]
+albedo_color = Color(0.703921, 0.3526354, 0.027464272, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ycpj8"]
 

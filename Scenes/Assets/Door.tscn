@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b0gwqmk6mkre7" path="res://Scripts/door.gd" id="1_18ljt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_18ljt"]
+albedo_color = Color(0.16100055, 0.54992914, 0.07069989, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bj6et"]
 size = Vector3(1.3, 2.3, 0.1)

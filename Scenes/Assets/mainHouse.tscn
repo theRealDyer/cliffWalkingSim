@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://batmwurvpsv4i"]
+[gd_scene load_steps=11 format=3 uid="uid://batmwurvpsv4i"]
 
 [ext_resource type="PackedScene" uid="uid://b8iyudf3it007" path="res://Scenes/Assets/WallSegment.tscn" id="1_6cl7c"]
 [ext_resource type="PackedScene" uid="uid://c0r8qxbgnvv1y" path="res://Scenes/Assets/WallSegmentWindow.tscn" id="1_sjrl5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c1xr0w6jwlmxf" path="res://Scenes/Assets/Door.tscn" id="4_83wbm"]
 [ext_resource type="PackedScene" uid="uid://c13378r0bb4lg" path="res://Assets/test stairs/3D_stairs_5.glb" id="6_028f8"]
 [ext_resource type="PackedScene" uid="uid://bmv3n58614vhj" path="res://Scenes/Assets/RoofGableSegment.tscn" id="7_kehgx"]
+[ext_resource type="PackedScene" uid="uid://biicujd0uu5y3" path="res://Scenes/Assets/BlockoutProp.tscn" id="8_hy3he"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_028f8"]
 size = Vector3(1, 0.32922363, 4.4961815)
@@ -26,7 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7901382, -0.5815134, 0)
 [node name="Interior" type="Node3D" parent="."]
 
 [node name="WallSegmentWindow" parent="Interior" instance=ExtResource("1_sjrl5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.516, 0, -4.817)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5134804, 1.1920929e-07, -4.8192644)
 wall_length = 5.0
 
 [node name="WallSegmentWindow3" parent="Interior" instance=ExtResource("1_sjrl5")]
@@ -121,26 +122,80 @@ wall_length = 6.0
 [node name="Door2" parent="Interior" instance=ExtResource("4_83wbm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.061134, 1.1423265, -1.1914358)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.09006381, 3.3831437, -1.6117127)
-
-[node name="3D_stairs_5" parent="." instance=ExtResource("6_028f8")]
+[node name="3D_stairs_5" parent="Interior" instance=ExtResource("6_028f8")]
 transform = Transform3D(-5.638769e-08, 0, -1.29, 0, 1.29, 0, 1.29, 0, -5.638769e-08, 11.860965, -0.034947038, 0.3124075)
 
-[node name="Collision" type="StaticBody3D" parent="3D_stairs_5"]
+[node name="Collision" type="StaticBody3D" parent="Interior/3D_stairs_5"]
 
-[node name="RunCol" type="CollisionShape3D" parent="3D_stairs_5/Collision"]
+[node name="RunCol" type="CollisionShape3D" parent="Interior/3D_stairs_5/Collision"]
 transform = Transform3D(0.99998385, 2.7212437e-08, -9.500049e-09, -2.7210726e-08, 0.78260684, -0.622505, -9.505111e-09, 0.622505, 0.78260684, -1.7881393e-07, 1.3331009, 2.6501741)
 shape = SubResource("BoxShape3D_028f8")
 
-[node name="LandingCol" type="CollisionShape3D" parent="3D_stairs_5/Collision"]
+[node name="LandingCol" type="CollisionShape3D" parent="Interior/3D_stairs_5/Collision"]
 transform = Transform3D(0.99997896, 0, 8.242296e-13, 0, 0.99997896, 0, -8.242296e-13, 0, 0.99997896, 1.4901161e-08, 2.7509897, 0.45773506)
 shape = SubResource("BoxShape3D_kehgx")
 
-[node name="RoofGableSegment" parent="." instance=ExtResource("7_kehgx")]
+[node name="RoofGableSegment" parent="Interior" instance=ExtResource("7_kehgx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0684818, 3.7602656, -0.2925533)
 
-[node name="RoofGableSegment2" parent="." instance=ExtResource("7_kehgx")]
+[node name="RoofGableSegment2" parent="Interior" instance=ExtResource("7_kehgx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 7.2605805, -0.293)
 
-[editable path="3D_stairs_5"]
+[node name="BlockoutProp" parent="Interior" instance=ExtResource("8_hy3he")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3413305, -0.022885561, -4.2085147)
+
+[node name="BlockoutProp8" parent="Interior" instance=ExtResource("8_hy3he")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3411365, 3.628526, -4.208514)
+width = 2.5
+
+[node name="BlockoutProp9" parent="Interior" instance=ExtResource("8_hy3he")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3411365, 3.628526, -3.162086)
+height = 0.6
+depth = 0.8
+
+[node name="BlockoutProp3" parent="Interior" instance=ExtResource("8_hy3he")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9331684, -0.022885561, 0.49514818)
+width = 3.835
+
+[node name="BlockoutProp4" parent="Interior" instance=ExtResource("8_hy3he")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9951496, -0.022885561, 0.49514818)
+width = 3.835
+
+[node name="BlockoutProp11" parent="Interior" instance=ExtResource("8_hy3he")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.330723, -0.10202861, -5.432499)
+width = 2.5
+
+[node name="BlockoutProp12" parent="Interior" instance=ExtResource("8_hy3he")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.016453, -0.10202861, -5.432499)
+width = 2.5
+
+[node name="BlockoutProp6" parent="Interior" instance=ExtResource("8_hy3he")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.887776, -0.022885561, 0.49514818)
+width = 3.835
+
+[node name="BlockoutProp7" parent="Interior" instance=ExtResource("8_hy3he")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.887776, -0.022885561, -4.2244983)
+width = 3.835
+
+[node name="BlockoutProp2" parent="Interior" instance=ExtResource("8_hy3he")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.702122, -0.022885442, -3.9241881)
+width = 0.4
+height = 2.5
+depth = 1.5
+
+[node name="BlockoutProp5" parent="Interior" instance=ExtResource("8_hy3he")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.580648, 3.6133647, -3.9241881)
+width = 0.4
+height = 2.5
+depth = 1.5
+
+[node name="BlockoutProp10" parent="Interior" instance=ExtResource("8_hy3he")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.580648, 3.6133647, 0.230165)
+width = 0.4
+height = 2.5
+depth = 1.5
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.09006381, 3.3831437, -1.6117127)
+
+[editable path="Interior/3D_stairs_5"]
