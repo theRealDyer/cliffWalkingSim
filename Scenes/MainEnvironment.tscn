@@ -50,4 +50,5 @@ evening_spawn_path = NodePath("../Spawns/EveningSpawn")
 [node name="InteractionPromptUi" parent="." instance=ExtResource("7_t43bo")]
 
 [editable path="MainHouse"]
+[editable path="MainHouse/3D_stairs_5"]
 [editable path="Landscape"]

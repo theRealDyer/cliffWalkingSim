@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmv3n58614vhj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_23mqr"]
+size = Vector3(10, 0.15, 3.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3rm8v"]
+size = Vector3(10, 0.15, 3.3)
+
+[node name="RoofGableSegment" type="Node3D"]
+
+[node name="LeftSlope" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9865864, -0.16323987, 0, 0.16323987, 0.9865864, 0, 0, 0)
+mesh = SubResource("BoxMesh_23mqr")
+
+[node name="RightSlope" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.98657215, 0.16332597, 0, -0.16332597, 0.98657215, 0, 0, -3.2251384)
+mesh = SubResource("BoxMesh_3rm8v")

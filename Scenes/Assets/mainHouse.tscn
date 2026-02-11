@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://batmwurvpsv4i"]
+[gd_scene load_steps=10 format=3 uid="uid://batmwurvpsv4i"]
 
 [ext_resource type="PackedScene" uid="uid://b8iyudf3it007" path="res://Scenes/Assets/WallSegment.tscn" id="1_6cl7c"]
 [ext_resource type="PackedScene" uid="uid://c0r8qxbgnvv1y" path="res://Scenes/Assets/WallSegmentWindow.tscn" id="1_sjrl5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://2dhrawljyr3i" path="res://Scenes/Assets/FloorPatch.tscn" id="3_u4k1t"]
 [ext_resource type="PackedScene" uid="uid://c1xr0w6jwlmxf" path="res://Scenes/Assets/Door.tscn" id="4_83wbm"]
 [ext_resource type="PackedScene" uid="uid://c13378r0bb4lg" path="res://Assets/test stairs/3D_stairs_5.glb" id="6_028f8"]
+[ext_resource type="PackedScene" uid="uid://bmv3n58614vhj" path="res://Scenes/Assets/RoofGableSegment.tscn" id="7_kehgx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_028f8"]
 size = Vector3(1, 0.32922363, 4.4961815)
@@ -106,7 +107,7 @@ width = 10.0
 depth = 6.0
 
 [node name="FloorPatch3" parent="Interior" instance=ExtResource("3_u4k1t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.990355, 7.013, -1.89)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 7.013, -1.89)
 width = 10.0
 depth = 6.0
 
@@ -135,5 +136,11 @@ shape = SubResource("BoxShape3D_028f8")
 [node name="LandingCol" type="CollisionShape3D" parent="3D_stairs_5/Collision"]
 transform = Transform3D(0.99997896, 0, 8.242296e-13, 0, 0.99997896, 0, -8.242296e-13, 0, 0.99997896, 1.4901161e-08, 2.7509897, 0.45773506)
 shape = SubResource("BoxShape3D_kehgx")
+
+[node name="RoofGableSegment" parent="." instance=ExtResource("7_kehgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0684818, 3.7602656, -0.2925533)
+
+[node name="RoofGableSegment2" parent="." instance=ExtResource("7_kehgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 7.2605805, -0.293)
 
 [editable path="3D_stairs_5"]
