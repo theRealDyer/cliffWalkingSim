@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://4hra5tw6g5en"]
+
+[ext_resource type="Script" uid="uid://cu01ufhohkroc" path="res://Scripts/time_of_day_token.gd" id="1_5074j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5074j"]
+albedo_color = Color(0.8517372, 0, 0.16330186, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5074j"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5074j"]
+height = 0.2
+radius = 0.25
+
+[node name="TimeOfDayToken" type="Node3D"]
+script = ExtResource("1_5074j")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_5074j")
+mesh = SubResource("CylinderMesh_5074j")
+
+[node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 17
+
+[node name="Collision" type="CollisionShape3D" parent="Body"]
+shape = SubResource("CylinderShape3D_5074j")
