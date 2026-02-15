@@ -24,7 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1203768, -0.014397025, -1.
 prompt_ui = NodePath("../InteractionPromptUi")
 
 [node name="MainHouse" parent="." instance=ExtResource("3_kqqtb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85054064, -0.13639998, -0.43014097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85064626, -0.60278183, -0.43014097)
 
 [node name="TimeOfDayTokenMorning" parent="MainHouse/Interior" index="12"]
 act_switcher_path = NodePath("../../../DebugActSwitcher")
@@ -41,9 +41,6 @@ label = "Evening"
 
 [node name="Landscape" parent="." instance=ExtResource("2_kcaew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21721554, 0, -0.43014097)
-
-[node name="terrain_blockout" parent="Landscape" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.42688, -0.86699367, -40.10449)
 
 [node name="Spawns" type="Node3D" parent="."]
 

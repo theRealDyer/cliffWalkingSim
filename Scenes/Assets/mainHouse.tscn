@@ -21,7 +21,7 @@ size = Vector3(1, 0.12988281, 1.0037842)
 [node name="Anchors" type="Node3D" parent="."]
 
 [node name="FrontDoorAnchor" type="Marker3D" parent="Anchors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7901382, -0.5815134, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7901382, -0.06921819, 0)
 
 [node name="Structure" type="Node3D" parent="."]
 
