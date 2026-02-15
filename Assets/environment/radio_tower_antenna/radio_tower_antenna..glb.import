@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bei4c7ov744jt"
-path="res://.godot/imported/radio_tower_antenna..glb-131c487a6911f7e5931d6cb283c5c897.scn"
+path="res://.godot/imported/radio_tower_antenna..glb-12fae8c15d5f11c6d3f5ff814216bf15.scn"
 
 [deps]
 
-source_file="res://Assets/environment/radio_tower_antenna..glb"
-dest_files=["res://.godot/imported/radio_tower_antenna..glb-131c487a6911f7e5931d6cb283c5c897.scn"]
+source_file="res://Assets/environment/radio_tower_antenna/radio_tower_antenna..glb"
+dest_files=["res://.godot/imported/radio_tower_antenna..glb-12fae8c15d5f11c6d3f5ff814216bf15.scn"]
 
 [params]
 
