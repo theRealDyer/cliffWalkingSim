@@ -22,13 +22,11 @@ afternoon_env = ExtResource("3_dmuyj")
 evening_env = ExtResource("4_cvin0")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-visible = false
+transform = Transform3D(0.8049043, 0.24945012, -0.5384271, -1.6619275e-08, 0.90735245, 0.42037088, 0.59340465, -0.33835834, 0.73033184, 0, 0, 0)
 shadow_enabled = true
 
 [node name="WorldEnv" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_fd3dh")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Ocean" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40.845, 0)
