@@ -26,7 +26,7 @@ transform = Transform3D(0.8049043, 0.24945012, -0.5384271, -1.6619275e-08, 0.907
 shadow_enabled = true
 
 [node name="WorldEnv" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_fd3dh")
+environment = ExtResource("3_dmuyj")
 
 [node name="Ocean" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40.845, 0)
