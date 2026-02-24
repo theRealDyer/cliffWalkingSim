@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-const MIN_PITCH := deg_to_rad(-60)
-const MAX_PITCH := deg_to_rad(60)
+const MIN_PITCH := deg_to_rad(-80)
+const MAX_PITCH := deg_to_rad(80)
 
 @export var interaction_ray: RayCast3D
 @export var prompt_ui: InteractablePromptUI

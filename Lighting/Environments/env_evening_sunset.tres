@@ -11,3 +11,5 @@ sky_material = SubResource("PanoramaSkyMaterial_lkmop")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_yn1ub")
+sky_rotation = Vector3(0, -2.7925267, 0)
+ambient_light_sky_contribution = 0.05

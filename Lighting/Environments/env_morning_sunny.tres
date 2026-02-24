@@ -11,4 +11,6 @@ sky_material = SubResource("PanoramaSkyMaterial_6qf70")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_aupby")
+ambient_light_sky_contribution = 0.05
+tonemap_mode = 3
 fog_depth_end = 1482.4
