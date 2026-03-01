@@ -44,4 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45282638, -1, -1.7875642)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50688887, -0.13085556, -8.157377)
 
 [node name="Book" parent="Table" instance=ExtResource("7_oho3u")]
-transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 0.6106571, 0)
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0.70000005, 0)
+item_name = "Blue book"
+item_description = "This is a big scary blue book"
+preview_scene = ExtResource("7_oho3u")

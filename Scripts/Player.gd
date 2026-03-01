@@ -20,7 +20,7 @@ var can_look := false # Whether to allow camera movement
 
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
-
+@onready var item_inspector := $ItemInspector
 
 func _ready() -> void:
 	prompt_ui.set_camera(camera)
@@ -68,8 +68,14 @@ func _input(event: InputEvent) -> void:
 		camera.rotation.x = clamp(camera.rotation.x, MIN_PITCH, MAX_PITCH)
 
 	if event.is_action_pressed("interact") and current_interactable:
-		current_interactable.interact(self)
+		var interact_return = current_interactable.interact(self)
 		prompt_ui.hide_prompt()
+		if interact_return is Dictionary:
+			item_inspector.item = current_interactable.preview_scene
+			item_inspector.item_name = interact_return["item_name"]
+			item_inspector.item_description = interact_return["item_description"]
+			
+			item_inspector.visible=true
 
 
 func _unhandled_input(event: InputEvent) -> void:

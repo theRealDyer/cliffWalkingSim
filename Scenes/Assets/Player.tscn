@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkicm4njqe6av"]
+[gd_scene load_steps=8 format=3 uid="uid://bkicm4njqe6av"]
 
 [ext_resource type="Script" uid="uid://cfnus31ip8d3h" path="res://Scripts/Player.gd" id="1_rpqav"]
 [ext_resource type="Texture2D" uid="uid://c7l2ilht1uhvv" path="res://Art/center_circle.png" id="3_qvut6"]
 [ext_resource type="PackedScene" uid="uid://b1ne7up15ifl6" path="res://Scenes/Assets/InteractionPromptUI.tscn" id="3_sbscy"]
+[ext_resource type="PackedScene" uid="uid://dsx3237tlmudw" path="res://Scenes/Assets/ItemInspector.tscn" id="4_sbscy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kyqiw"]
 
@@ -63,3 +64,6 @@ stretch_mode = 5
 visible = false
 follow_viewport_enabled = true
 camera = NodePath("../Neck/Camera3D")
+
+[node name="ItemInspector" parent="." instance=ExtResource("4_sbscy")]
+visible = false
