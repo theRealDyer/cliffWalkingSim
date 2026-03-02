@@ -7,7 +7,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rpqav"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ota4u"]
-frustum_focal_length = 25.0
+frustum_focal_length = 20.0
 
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("interaction_ray") groups=["Player"]]
 script = ExtResource("1_rpqav")
