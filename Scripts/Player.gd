@@ -62,7 +62,7 @@ func _input(event: InputEvent) -> void:
 		can_look = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-	if event is InputEventMouseMotion and can_look:
+	if event is InputEventMouseMotion and can_look and Input.mouse_mode!=0:
 		neck.rotate_y(-event.relative.x * mouse_sensitivity)
 		camera.rotate_x(-event.relative.y * mouse_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, MIN_PITCH, MAX_PITCH)
@@ -76,6 +76,14 @@ func _input(event: InputEvent) -> void:
 			item_inspector.item_description = interact_return["item_description"]
 			
 			item_inspector.visible=true
+			get_tree().paused = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+		
+func _close_window():
+	item_inspector.visible=false
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func _unhandled_input(event: InputEvent) -> void:

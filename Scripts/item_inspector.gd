@@ -8,7 +8,9 @@ extends CanvasLayer
 @onready var item_name_label: RichTextLabel = $CenterContainer/HBoxContainer/MarginContainer2/ItemDescription/VBoxContainer/ItemName
 @onready var item_description_label: RichTextLabel = $CenterContainer/HBoxContainer/MarginContainer2/ItemDescription/VBoxContainer/ItemDescription
 @onready var camera_3d: Camera3D = $CenterContainer/HBoxContainer/MarginContainer/ItemInspect/SubViewportContainer/SubViewport/Camera3D
+@onready var button: Button = $MarginContainer/Button
 
+signal closed
 
 func _ready() -> void:
 	connect("visibility_changed", update_inspector)
@@ -37,3 +39,8 @@ func update_inspector():
 		else:
 			push_error("No item to update with")
 	
+
+func _on_exit_toggled(_sig) -> void:
+	##
+	print("trying to exit")
+	closed.emit()

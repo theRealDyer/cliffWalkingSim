@@ -66,4 +66,7 @@ follow_viewport_enabled = true
 camera = NodePath("../Neck/Camera3D")
 
 [node name="ItemInspector" parent="." instance=ExtResource("4_sbscy")]
+process_mode = 3
 visible = false
+
+[connection signal="closed" from="ItemInspector" to="." method="_close_window"]
