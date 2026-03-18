@@ -4,10 +4,14 @@ extends CanvasLayer
 @export var item_name: String
 @export var item_description: String
 
-@onready var item_viewer: SubViewport = $CenterContainer/HBoxContainer/MarginContainer/ItemInspect/SubViewportContainer/SubViewport
-@onready var item_name_label: RichTextLabel = $CenterContainer/HBoxContainer/MarginContainer2/ItemDescription/VBoxContainer/ItemName
-@onready var item_description_label: RichTextLabel = $CenterContainer/HBoxContainer/MarginContainer2/ItemDescription/VBoxContainer/ItemDescription
-@onready var camera_3d: Camera3D = $CenterContainer/HBoxContainer/MarginContainer/ItemInspect/SubViewportContainer/SubViewport/Camera3D
+@onready var item_viewer: SubViewport = \
+$CenterContainer/HBoxContainer/MarginContainer/ItemInspect/SubViewportContainer/SubViewport
+@onready var item_name_label: RichTextLabel = \
+$CenterContainer/HBoxContainer/MarginContainer2/ItemDescription/VBoxContainer/ItemName
+@onready var item_description_label: RichTextLabel = \
+$CenterContainer/HBoxContainer/MarginContainer2/ItemDescription/VBoxContainer/ItemDescription
+@onready var camera_3d: Camera3D = \
+$CenterContainer/HBoxContainer/MarginContainer/ItemInspect/SubViewportContainer/SubViewport/Camera3D
 @onready var button: Button = $MarginContainer/Button
 
 signal closed
