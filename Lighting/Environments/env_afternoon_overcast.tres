@@ -11,3 +11,4 @@ sky_material = SubResource("PanoramaSkyMaterial_ihjkh")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_r6mas")
+ambient_light_sky_contribution = 0.05

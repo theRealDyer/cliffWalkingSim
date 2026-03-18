@@ -1,4 +1,5 @@
 [gd_scene load_steps=7 format=3 uid="uid://h8d1aseqp8nd"]
+[gd_scene load_steps=9 format=3 uid="uid://h8d1aseqp8nd"]
 
 [ext_resource type="PackedScene" uid="uid://bkicm4njqe6av" path="res://Scenes/Assets/Player.tscn" id="1_qnkal"]
 [ext_resource type="PackedScene" uid="uid://27r2p18qdw46" path="res://Scenes/Assets/LightingRig.tscn" id="1_r0a3f"]
@@ -6,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://batmwurvpsv4i" path="res://Scenes/Assets/mainHouse.tscn" id="3_kqqtb"]
 [ext_resource type="Script" uid="uid://b5xjvfdsood8o" path="res://Scripts/SnapHouseToPad.gd" id="4_r0a3f"]
 [ext_resource type="Script" uid="uid://ds2oex1emjjyv" path="res://Scripts/debug_act_switcher.gd" id="6_4om8p"]
+[ext_resource type="PackedScene" uid="uid://b1ne7up15ifl6" path="res://Scenes/Assets/InteractionPromptUI.tscn" id="7_t43bo"]
+[ext_resource type="PackedScene" uid="uid://3id1m7b1353p" path="res://Scenes/Assets/FadeLayer.tscn" id="9_7ubxw"]
 
 [node name="MainEnvironment" type="Node3D"]
 
@@ -22,7 +25,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1203768, -0.014397025, -1.
 prompt_ui = NodePath("")
 
 [node name="MainHouse" parent="." instance=ExtResource("3_kqqtb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85054064, -0.7179134, -0.43014097)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85064626, -0.60278183, -0.43014097)
+
+[node name="TimeOfDayTokenMorning" parent="MainHouse/Interior" index="12"]
+act_switcher_path = NodePath("../../../DebugActSwitcher")
+
+[node name="TimeOfDayTokenAfternoon" parent="MainHouse/Interior" index="13"]
+act_switcher_path = NodePath("../../../DebugActSwitcher")
+part_index = 1
+label = "Afternoon"
+
+[node name="TimeOfDayTokenEvening" parent="MainHouse/Interior" index="14"]
+act_switcher_path = NodePath("../../../DebugActSwitcher")
+part_index = 2
+label = "Evening"
 
 [node name="Landscape" parent="." instance=ExtResource("2_kcaew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21721554, 0, -0.43014097)
@@ -30,10 +46,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21721554, 0, -0.43014097)
 [node name="Spawns" type="Node3D" parent="."]
 
 [node name="MorningSpawn" type="Marker3D" parent="Spawns"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6881609, -0.45302814, -3.037358)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.524417, 3.690099, -2.8462934)
 
 [node name="AfternoonSpawn" type="Marker3D" parent="Spawns"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.321369, -0.66517174, -1.3588438)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3696313, 0.021347761, -1.3588438)
 
 [node name="EveningSpawn" type="Marker3D" parent="Spawns"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6855621, -0.48761415, 6.715131)
@@ -45,6 +61,13 @@ player_path = NodePath("../Player")
 morning_spawn_path = NodePath("../Spawns/MorningSpawn")
 afternoon_spawn_path = NodePath("../Spawns/AfternoonSpawn")
 evening_spawn_path = NodePath("../Spawns/EveningSpawn")
+fade_rect_path = NodePath("../FadeLayer/FadeRect")
+
+[node name="InteractionPromptUi" parent="." instance=ExtResource("7_t43bo")]
+
+[node name="FadeLayer" parent="." instance=ExtResource("9_7ubxw")]
 
 [editable path="MainHouse"]
+[editable path="MainHouse/Structure/3D_stairs_5"]
 [editable path="Landscape"]
+[editable path="FadeLayer"]

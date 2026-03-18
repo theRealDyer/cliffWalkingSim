@@ -10,7 +10,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rpqav"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ota4u"]
-frustum_focal_length = 15.0
+frustum_focal_length = 20.0
 
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("interaction_ray", "prompt_ui") groups=["Player"]]
 script = ExtResource("1_rpqav")
@@ -19,6 +19,7 @@ prompt_ui = NodePath("InteractionPromptUi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_kyqiw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

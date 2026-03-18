@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0r8qxbgnvv1y"]
+
+[ext_resource type="Script" uid="uid://djv5j4snmklhj" path="res://Scripts/wall_segment_window.gd" id="1_uao0n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uao0n"]
+size = Vector3(2.125, 3.5, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_llhrn"]
+size = Vector3(2.125, 3.5, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y1weh"]
+size = Vector3(1.75, 1, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_16mr8"]
+size = Vector3(1.75, 1.25, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lbmdi"]
+size = Vector3(2.125, 3.5, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1hqam"]
+size = Vector3(2.125, 3.5, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gjmwm"]
+size = Vector3(1.75, 1, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d126k"]
+size = Vector3(1.75, 1.25, 0.2)
+
+[node name="WallSegmentWindow" type="Node3D"]
+script = ExtResource("1_uao0n")
+wall_length = 6.0
+wall_height = 3.5
+window_width = 1.75
+window_height = 1.25
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Left" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9375, 1.75, 0)
+mesh = SubResource("BoxMesh_uao0n")
+
+[node name="Right" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9375, 1.75, 0)
+mesh = SubResource("BoxMesh_llhrn")
+
+[node name="Below" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_y1weh")
+
+[node name="Above" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.875, 0)
+mesh = SubResource("BoxMesh_16mr8")
+
+[node name="Body" type="StaticBody3D" parent="."]
+
+[node name="LeftCol" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9375, 1.75, 0)
+shape = SubResource("BoxShape3D_lbmdi")
+
+[node name="RightCol" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9375, 1.75, 0)
+shape = SubResource("BoxShape3D_1hqam")
+
+[node name="BelowCol" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_gjmwm")
+
+[node name="AboveCol" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.875, 0)
+shape = SubResource("BoxShape3D_d126k")
