@@ -76,11 +76,15 @@ layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
 text = "[b]The scary blue book[/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ItemDescription" type="RichTextLabel" parent="CenterContainer/HBoxContainer/MarginContainer2/ItemDescription/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 size_flags_vertical = 3
 text = "This is a book which is so blue it is actually quite scary"
+horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 1
