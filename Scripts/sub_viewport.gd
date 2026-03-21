@@ -24,7 +24,6 @@ func _input(event: InputEvent):
 		model.rotate_x(delta.y * sensitivity)
 		
 		
-		
 func get_item_reference(_sig):
 	model = get_child(-1)
 	print(model)
