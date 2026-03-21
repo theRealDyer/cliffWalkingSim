@@ -1,4 +1,3 @@
-[gd_scene load_steps=7 format=3 uid="uid://h8d1aseqp8nd"]
 [gd_scene load_steps=9 format=3 uid="uid://h8d1aseqp8nd"]
 
 [ext_resource type="PackedScene" uid="uid://bkicm4njqe6av" path="res://Scenes/Assets/Player.tscn" id="1_qnkal"]
@@ -22,7 +21,7 @@ pad_anchor = NodePath("../Landscape/Anchors/HousePadAnchor")
 
 [node name="Player" parent="." node_paths=PackedStringArray("prompt_ui") instance=ExtResource("1_qnkal")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1203768, -0.014397025, -1.0890306)
-prompt_ui = NodePath("")
+prompt_ui = NodePath("../InteractionPromptUi")
 
 [node name="MainHouse" parent="." instance=ExtResource("3_kqqtb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85064626, -0.60278183, -0.43014097)
