@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsx3237tlmudw"]
+[gd_scene load_steps=5 format=3 uid="uid://dsx3237tlmudw"]
 
 [ext_resource type="Script" uid="uid://bx1y6v0v8urdj" path="res://Scripts/item_inspector.gd" id="1_3d5tr"]
+[ext_resource type="Script" uid="uid://wevo3lvuk8tp" path="res://Scripts/sub_viewport.gd" id="2_3d5tr"]
 
 [sub_resource type="Environment" id="Environment_tpico"]
 
@@ -50,6 +51,7 @@ transparent_bg = true
 handle_input_locally = false
 size = Vector2i(400, 512)
 render_target_update_mode = 4
+script = ExtResource("2_3d5tr")
 
 [node name="Camera3D" type="Camera3D" parent="CenterContainer/HBoxContainer/MarginContainer/ItemInspect/SubViewportContainer/SubViewport"]
 

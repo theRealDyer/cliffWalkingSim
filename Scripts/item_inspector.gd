@@ -14,6 +14,9 @@ $CenterContainer/HBoxContainer/MarginContainer2/ItemDescription/VBoxContainer/It
 $CenterContainer/HBoxContainer/MarginContainer/ItemInspect/SubViewportContainer/SubViewport/Camera3D
 @onready var button: Button = $MarginContainer/Button
 
+@onready var in_view := false
+
+
 signal closed
 
 func _ready() -> void:
@@ -22,7 +25,8 @@ func _ready() -> void:
 		var item_instance = item.instantiate()
 		item_viewer.add_child(item_instance)
 		frame_model(item_instance)
-	
+
+
 func frame_model(model: Node3D):
 	model.rotate(Vector3(1,0,0), PI/3)
 	var aabb = model.get_combined_aabb(model)
