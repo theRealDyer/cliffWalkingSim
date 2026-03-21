@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsx3237tlmudw"]
+
+[ext_resource type="Script" uid="uid://bx1y6v0v8urdj" path="res://Scripts/item_inspector.gd" id="1_3d5tr"]
+
+[sub_resource type="Environment" id="Environment_tpico"]
+
+[sub_resource type="World3D" id="World3D_tpico"]
+environment = SubResource("Environment_tpico")
+
+[node name="ItemInspector" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_3d5tr")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 10
+
+[node name="ItemInspect" type="Panel" parent="CenterContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(400, 512)
+layout_mode = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CenterContainer/HBoxContainer/MarginContainer/ItemInspect"]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 512.0
+
+[node name="SubViewport" type="SubViewport" parent="CenterContainer/HBoxContainer/MarginContainer/ItemInspect/SubViewportContainer"]
+own_world_3d = true
+world_3d = SubResource("World3D_tpico")
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(400, 512)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="CenterContainer/HBoxContainer/MarginContainer/ItemInspect/SubViewportContainer/SubViewport"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CenterContainer/HBoxContainer/MarginContainer/ItemInspect/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.9897762, 0.14262892, 0, -0.14262892, 0.9897762, 0, 0.723832, 0.34331354)
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="ItemDescription" type="Panel" parent="CenterContainer/HBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer/MarginContainer2/ItemDescription"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 512.0
+
+[node name="ItemName" type="RichTextLabel" parent="CenterContainer/HBoxContainer/MarginContainer2/ItemDescription/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[b]The scary blue book[/b]"
+
+[node name="ItemDescription" type="RichTextLabel" parent="CenterContainer/HBoxContainer/MarginContainer2/ItemDescription/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "This is a book which is so blue it is actually quite scary"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Exit"
+
+[connection signal="toggled" from="MarginContainer/Button" to="." method="_on_exit_toggled"]

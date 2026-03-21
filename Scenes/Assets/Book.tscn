@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://64g0akwg3usu"]
+
+[ext_resource type="Script" uid="uid://c0a3ukvk05sr2" path="res://Scripts/book.gd" id="1_q6jug"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pimlv"]
+albedo_color = Color(0.18459561, 0.046051376, 0.39221573, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_55lon"]
+material = SubResource("StandardMaterial3D_pimlv")
+size = Vector3(0.15, 0.03, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ka4xf"]
+size = Vector3(0.15, 0.03, 0.2)
+
+[node name="Book" type="Node3D"]
+script = ExtResource("1_q6jug")
+interaction_text = "Pick up"
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="BookMesh" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("BoxMesh_55lon")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 17
+
+[node name="BookCol" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ka4xf")

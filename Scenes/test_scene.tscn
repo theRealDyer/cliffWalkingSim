@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnfp4vd6ucrro"]
+[gd_scene load_steps=10 format=3 uid="uid://dnfp4vd6ucrro"]
 
 [ext_resource type="PackedScene" uid="uid://bkicm4njqe6av" path="res://Scenes/Assets/Player.tscn" id="1_3dogw"]
 [ext_resource type="PackedScene" uid="uid://byimui1p1uj4y" path="res://Scenes/Assets/Landscape.tscn" id="2_r5l72"]
 [ext_resource type="PackedScene" uid="uid://c1xr0w6jwlmxf" path="res://Scenes/Assets/Door.tscn" id="3_50ct6"]
 [ext_resource type="PackedScene" uid="uid://b2hd3iid1wq7d" path="res://Scenes/Assets/DoorwaySegment.tscn" id="4_hb2xm"]
-[ext_resource type="PackedScene" uid="uid://b1ne7up15ifl6" path="res://Scenes/Assets/InteractionPromptUI.tscn" id="5_ak5v8"]
+[ext_resource type="PackedScene" uid="uid://27qxkq5svtaq" path="res://Scenes/Assets/Table.tscn" id="6_rdbpf"]
+[ext_resource type="PackedScene" uid="uid://64g0akwg3usu" path="res://Scenes/Assets/Book.tscn" id="7_oho3u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r5l72"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -28,18 +29,22 @@ environment = SubResource("Environment_50ct6")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." node_paths=PackedStringArray("prompt_ui") instance=ExtResource("1_3dogw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9802833, 3.5869994)
-prompt_ui = NodePath("../InteractionPromptUi")
+[node name="Player" parent="." instance=ExtResource("1_3dogw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0197167, -6.8130007)
 
 [node name="Landscape" parent="." instance=ExtResource("2_r5l72")]
 
 [node name="Door" parent="." instance=ExtResource("3_50ct6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16706169, 1.1599573, -1.7298704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16706169, 0.15995729, -1.7298704)
 
 [node name="DoorwaySegment" parent="." instance=ExtResource("4_hb2xm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45282638, 0, -1.7875642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45282638, -1, -1.7875642)
 
-[node name="InteractionPromptUi" parent="." instance=ExtResource("5_ak5v8")]
-visible = false
-follow_viewport_enabled = true
+[node name="Table" parent="." instance=ExtResource("6_rdbpf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50688887, -0.13085556, -8.157377)
+
+[node name="Book" parent="Table" instance=ExtResource("7_oho3u")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0.70000005, 0)
+item_name = "Blue book"
+item_description = "This is a big scary blue book"
+preview_scene = ExtResource("7_oho3u")
