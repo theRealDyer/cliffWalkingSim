@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://27qxkq5svtaq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wwn5i"]
+size = Vector3(1.5, 0.1, 0.75)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ymyit"]
+top_radius = 0.05
+bottom_radius = 0.1
+height = 0.9
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7euwo"]
+size = Vector3(1.5, 0.1, 0.75)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_araf3"]
+height = 0.9
+radius = 0.1
+
+[node name="Table" type="Node3D"]
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="TableTop" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_wwn5i")
+
+[node name="Leg1" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65, 0, 0.3)
+mesh = SubResource("CylinderMesh_ymyit")
+
+[node name="Leg2" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65, 0, -0.3)
+mesh = SubResource("CylinderMesh_ymyit")
+
+[node name="Leg3" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65, 0, 0.3)
+mesh = SubResource("CylinderMesh_ymyit")
+
+[node name="Leg4" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65, 0, -0.3)
+mesh = SubResource("CylinderMesh_ymyit")
+
+[node name="Body" type="StaticBody3D" parent="."]
+
+[node name="TableTopCol" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_7euwo")
+
+[node name="Leg1Col" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65, 0, 0.3)
+shape = SubResource("CylinderShape3D_araf3")
+
+[node name="Leg2Col" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65, 0, -0.3)
+shape = SubResource("CylinderShape3D_araf3")
+
+[node name="Leg3Col" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65, 0, 0.3)
+shape = SubResource("CylinderShape3D_araf3")
+
+[node name="Leg4Col" type="CollisionShape3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65, 0, -0.3)
+shape = SubResource("CylinderShape3D_araf3")
