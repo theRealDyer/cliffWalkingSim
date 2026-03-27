@@ -41,15 +41,16 @@ layout_mode = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CenterContainer/HBoxContainer/MarginContainer/ItemInspect"]
 layout_mode = 0
-offset_right = 400.0
-offset_bottom = 512.0
+offset_right = 700.0
+offset_bottom = 700.0
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="CenterContainer/HBoxContainer/MarginContainer/ItemInspect/SubViewportContainer"]
 own_world_3d = true
 world_3d = SubResource("World3D_tpico")
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(400, 512)
+size = Vector2i(700, 700)
 render_target_update_mode = 4
 script = ExtResource("2_3d5tr")
 
@@ -57,6 +58,15 @@ script = ExtResource("2_3d5tr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="CenterContainer/HBoxContainer/MarginContainer/ItemInspect/SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 0.9897762, 0.14262892, 0, -0.14262892, 0.9897762, 0, 0.723832, 0.34331354)
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/MarginContainer/ItemInspect"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 10.0
+offset_right = 665.0
+offset_bottom = 35.0
+toggle_mode = true
+text = "Reset"
 
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
@@ -75,7 +85,6 @@ offset_bottom = 512.0
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "[b]The scary blue book[/b]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -83,7 +92,6 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 size_flags_vertical = 3
-text = "This is a book which is so blue it is actually quite scary"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -103,4 +111,5 @@ layout_mode = 2
 toggle_mode = true
 text = "Exit"
 
+[connection signal="toggled" from="CenterContainer/HBoxContainer/MarginContainer/ItemInspect/Button" to="." method="_on_button_toggled"]
 [connection signal="toggled" from="MarginContainer/Button" to="." method="_on_exit_toggled"]

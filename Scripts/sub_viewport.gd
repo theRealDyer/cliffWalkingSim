@@ -2,7 +2,7 @@ extends SubViewport
 
 var last_mouse_pos := Vector2.ZERO
 var dragging := false
-var sensitivity := 0.1
+var sensitivity := 0.01
 var model = null
 @onready var camera: Camera3D = $Camera3D
 
@@ -26,5 +26,4 @@ func _input(event: InputEvent):
 		
 func get_item_reference(_sig):
 	model = get_child(-1)
-	print(model)
 	

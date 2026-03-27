@@ -42,13 +42,22 @@ func update_inspector():
 		item_viewer.add_child(item_instance)
 		if visible == true:
 			frame_model(item_instance)
+			update_text()
 		elif visible == false:
 			item_viewer.remove_child(item_instance)
 		else:
 			push_error("No item to update with")
 	
-
+func update_text():
+	item_name_label.text = "[b]" + item_name + "[/b]"
+	item_description_label.text = item_description
+	
+	
 func _on_exit_toggled(_sig) -> void:
 	##
-	print("trying to exit")
 	closed.emit()
+
+func _on_button_toggled(_toggled_on: bool) -> void:
+	## Resets the rotation of the model in viewport
+	var item_instance = item_viewer.get_child(-1)
+	item_instance.rotation = Vector3(PI/3, 0, 0)
