@@ -50,8 +50,10 @@ extends Node3D
 @onready var below_col: CollisionShape3D = $Body/BelowCol
 @onready var above_col: CollisionShape3D = $Body/AboveCol
 
+
 func _ready() -> void:
 	_apply()
+
 
 func _apply() -> void:
 	if not is_inside_tree():
@@ -104,11 +106,13 @@ func _apply() -> void:
 	_set_col(below_col, below_size, Vector3(0.0, y_center_below, 0.0))
 	_set_col(above_col, above_size, Vector3(0.0, y_center_above, 0.0))
 
+
 func _set_box(mi: MeshInstance3D, size: Vector3, pos: Vector3) -> void:
 	var bm := BoxMesh.new()
 	bm.size = size
 	mi.mesh = bm
 	mi.position = pos
+
 
 func _set_col(cs: CollisionShape3D, size: Vector3, pos: Vector3) -> void:
 	var shape := BoxShape3D.new()

@@ -17,7 +17,7 @@ func interact(_interactor: Node):
 func get_combined_aabb(root: Node3D, first := true):
 	# Gets the total bounding box of the mesh instance for better camera framing
 	var aabb := AABB()
-	
+
 	for node in root.get_children():
 		if node is MeshInstance3D:
 			# Only MeshInstances have an aabb value we care about
@@ -27,11 +27,11 @@ func get_combined_aabb(root: Node3D, first := true):
 				first = false
 			else:
 				aabb = aabb.merge(node_aabb)
-		
+
 		if node.get_child_count() > 0:
 			# Check if node has children, if so recursively get all aabbs for each MeshInstance
 			var child_aabb = get_combined_aabb(node, first)
-			
+
 			if not first:
 				aabb = aabb.merge(child_aabb)
 			else:

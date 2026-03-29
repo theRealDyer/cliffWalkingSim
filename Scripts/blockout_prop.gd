@@ -20,8 +20,10 @@ extends Node3D
 @onready var body: StaticBody3D = $Body
 @onready var collision: CollisionShape3D = $Body/Collision
 
+
 func _ready() -> void:
 	_apply()
+
 
 func _apply() -> void:
 	if not is_inside_tree():
