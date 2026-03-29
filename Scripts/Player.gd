@@ -75,7 +75,6 @@ func _input(event: InputEvent) -> void:
 			item_inspector.item = current_interactable.preview_scene
 			item_inspector.item_name = interact_return["item_name"]
 			item_inspector.item_description = interact_return["item_description"]
-			print(interact_return)
 
 			item_inspector.visible = true
 			get_tree().paused = true

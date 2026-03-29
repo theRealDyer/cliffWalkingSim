@@ -27,7 +27,6 @@ func _ready() -> void:
 func frame_model(model: Node3D):
 	model.rotate(Vector3(1, 0, 0), PI / 3)
 	var aabb = model.get_combined_aabb(model)
-	print(aabb)
 	var size = aabb.size.length()
 	camera_3d.global_position = Vector3(0, 0, size * 1.5)
 	camera_3d.look_at(Vector3.ZERO)
@@ -43,7 +42,6 @@ func update_inspector():
 			frame_model(item_instance)
 			update_text()
 		elif visible == false:
-			print("removing the model")
 			item_viewer.remove_child(item_instance)
 			item_instance = null
 		else:
