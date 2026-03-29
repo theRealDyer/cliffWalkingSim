@@ -15,16 +15,12 @@ $CenterContainer/HBoxContainer/MarginContainer/ItemInspect/SubViewportContainer/
 @onready var button: Button = $MarginContainer/Button
 
 @onready var in_view := false
-
+@onready var item_instance = null
 
 signal closed
 
 func _ready() -> void:
 	connect("visibility_changed", update_inspector)
-	if item != null:
-		var item_instance = item.instantiate()
-		item_viewer.add_child(item_instance)
-		frame_model(item_instance)
 
 
 func frame_model(model: Node3D):
@@ -38,13 +34,17 @@ func frame_model(model: Node3D):
 
 func update_inspector():
 	if item != null:
-		var item_instance = item.instantiate()
-		item_viewer.add_child(item_instance)
-		if visible == true:
+		if (visible == true) and (item_instance==null):
+			# If item not in the window, add it
+			item_instance = item.instantiate()
+			item_viewer.add_child(item_instance)
+			
 			frame_model(item_instance)
 			update_text()
 		elif visible == false:
+			print("removing the model")
 			item_viewer.remove_child(item_instance)
+			item_instance=null
 		else:
 			push_error("No item to update with")
 	
@@ -59,5 +59,5 @@ func _on_exit_toggled(_sig) -> void:
 
 func _on_button_toggled(_toggled_on: bool) -> void:
 	## Resets the rotation of the model in viewport
-	var item_instance = item_viewer.get_child(-1)
+	item_instance = item_viewer.get_child(-1)
 	item_instance.rotation = Vector3(PI/3, 0, 0)

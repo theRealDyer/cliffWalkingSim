@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnfp4vd6ucrro"]
+[gd_scene load_steps=11 format=3 uid="uid://dnfp4vd6ucrro"]
 
 [ext_resource type="PackedScene" uid="uid://bkicm4njqe6av" path="res://Scenes/Assets/Player.tscn" id="1_3dogw"]
 [ext_resource type="PackedScene" uid="uid://byimui1p1uj4y" path="res://Scenes/Assets/Landscape.tscn" id="2_r5l72"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b2hd3iid1wq7d" path="res://Scenes/Assets/DoorwaySegment.tscn" id="4_hb2xm"]
 [ext_resource type="PackedScene" uid="uid://27qxkq5svtaq" path="res://Scenes/Assets/Table.tscn" id="6_rdbpf"]
 [ext_resource type="PackedScene" uid="uid://64g0akwg3usu" path="res://Scenes/Assets/Book.tscn" id="7_oho3u"]
+[ext_resource type="PackedScene" uid="uid://cf5p72kb5irfv" path="res://Scenes/Assets/Mug.tscn" id="7_rdbpf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r5l72"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -48,3 +49,9 @@ transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70
 item_name = "Blue book"
 item_description = "This is a big scary blue book"
 preview_scene = ExtResource("7_oho3u")
+
+[node name="Mug" parent="Table" instance=ExtResource("7_rdbpf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49426436, 0.6602068, 0)
+item_name = "White Mug"
+item_description = "This mug used to contain coffee ... Where did it all go?"
+preview_scene = ExtResource("7_rdbpf")

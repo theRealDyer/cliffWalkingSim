@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://64g0akwg3usu"]
 
-[ext_resource type="Script" uid="uid://c0a3ukvk05sr2" path="res://Scripts/book.gd" id="1_q6jug"]
+[ext_resource type="Script" uid="uid://c0a3ukvk05sr2" path="res://Scripts/small_item.gd" id="1_q6jug"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pimlv"]
 albedo_color = Color(0.18459561, 0.046051376, 0.39221573, 1)
@@ -15,7 +15,6 @@ size = Vector3(0.15, 0.03, 0.2)
 [node name="Book" type="Node3D"]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 script = ExtResource("1_q6jug")
-interaction_text = "Pick up"
 
 [node name="Node3D" type="Node3D" parent="."]
 

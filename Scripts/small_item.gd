@@ -1,5 +1,5 @@
 extends Interactable
-## Controls the interaction pickup and display of the book
+## Controls the interaction pickup and display of the small item
 @export_group("Interaction Info")
 @export var item_name: String
 @export var item_description: String
