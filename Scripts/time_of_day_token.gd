@@ -6,8 +6,10 @@ extends Interactable
 
 @onready var act_switcher: Node = get_node(act_switcher_path)
 
+
 func get_interaction_text() -> String:
 	return label
+
 
 func interact(_interactor: Node) -> void:
 	if act_switcher and act_switcher.has_method("go_to_act"):

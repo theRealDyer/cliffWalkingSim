@@ -12,8 +12,6 @@ const MAX_PITCH := deg_to_rad(80)
 @export var jump_velocity := 4.5
 @export var mouse_sensitivity := 0.001
 
-
-
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var current_interactable: Interactable = null # Sets the current interactable object if any
@@ -22,6 +20,7 @@ var can_look := false # Whether to allow camera movement
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
 @onready var item_inspector := $ItemInspector
+
 
 func _ready() -> void:
 	prompt_ui.set_camera(camera)
@@ -64,7 +63,7 @@ func _input(event: InputEvent) -> void:
 		can_look = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-	if event is InputEventMouseMotion and can_look and Input.mouse_mode!=0:
+	if event is InputEventMouseMotion and can_look and Input.mouse_mode != 0:
 		neck.rotate_y(-event.relative.x * mouse_sensitivity)
 		camera.rotate_x(-event.relative.y * mouse_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, MIN_PITCH, MAX_PITCH)
@@ -76,14 +75,14 @@ func _input(event: InputEvent) -> void:
 			item_inspector.item = current_interactable.preview_scene
 			item_inspector.item_name = interact_return["item_name"]
 			item_inspector.item_description = interact_return["item_description"]
-			
-			item_inspector.visible=true
+
+			item_inspector.visible = true
 			get_tree().paused = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-		
+
 func _close_window():
-	item_inspector.visible=false
+	item_inspector.visible = false
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
